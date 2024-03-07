@@ -1,6 +1,6 @@
 # Docker Contaienr
 
-## python 
+## python:3.10, cuda:12.0
 - rapids
 - lightgbm
 - lay
