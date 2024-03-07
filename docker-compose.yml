@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  falcon_rapids:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: falcon_rapids:latest
+    volumes:
+      - .:/workspace
+    ports:
+      - "8889:8888"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - capabilities: ["gpu"]
+    command: tail -f /dev/null
